@@ -1,6 +1,5 @@
-﻿using AssistenteFinanceiro.Domain.Model.Types;
+﻿using AssistenteFinanceiro.Domain.Model.ContaValueObjects;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
-using System;
 using System.Collections.Generic;
 
 namespace AssistenteFinanceiro.Domain.Model

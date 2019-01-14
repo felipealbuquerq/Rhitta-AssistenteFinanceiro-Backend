@@ -1,7 +1,7 @@
 ﻿using InsurSoft.Backend.Shared.Functional;
 using System.Collections.Generic;
 
-namespace AssistenteFinanceiro.Domain.Model.Types
+namespace AssistenteFinanceiro.Domain.Model.ContaValueObjects
 {
     public class DescricaoConta : ValueObject
     {
