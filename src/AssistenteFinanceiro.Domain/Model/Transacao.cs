@@ -9,5 +9,8 @@ namespace AssistenteFinanceiro.Domain.Model
         public Conta Conta { get; }
         public ValorTransacao Valor { get; }
         public TipoTransacao Tipo { get; }
+
+        public bool IsReceita() => Tipo == TipoTransacao.Receita;
+        public bool IsDespesa() => !IsReceita();
     }
 }

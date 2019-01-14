@@ -23,5 +23,7 @@ namespace AssistenteFinanceiro.Domain.Model.TransacaoValueObjects
         {
             yield return Valor;
         }
+
+        public static implicit operator decimal(ValorTransacao valor) => valor.Valor;
     }
 }
