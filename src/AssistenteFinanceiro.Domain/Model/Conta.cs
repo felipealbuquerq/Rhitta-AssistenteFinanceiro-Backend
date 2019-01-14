@@ -15,6 +15,7 @@ namespace AssistenteFinanceiro.Domain.Model
 
         public List<Transacao> Transacoes { get; }
         public List<Orcamento> Orcamentos { get; }
+        public List<Objetivo> Objetivos { get; }
 
         public DateTime DataCriacao { get; }
         public DateTime DataAtualizacao { get; }

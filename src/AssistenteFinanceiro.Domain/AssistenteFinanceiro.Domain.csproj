@@ -8,4 +8,10 @@
     <ProjectReference Include="..\AssistenteFinanceiro.Infra.Functional\AssistenteFinanceiro.Infra.Functional.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\OrcamentoTypes\" />
+    <Folder Include="Model\ObjetivoTypes\" />
+    <Folder Include="Model\TransacaoTypes\" />
+  </ItemGroup>
+
 </Project>
