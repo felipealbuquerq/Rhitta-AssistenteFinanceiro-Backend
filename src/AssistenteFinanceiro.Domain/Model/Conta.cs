@@ -1,5 +1,6 @@
 ﻿using AssistenteFinanceiro.Domain.Model.Types;
 using System;
+using System.Collections.Generic;
 
 namespace AssistenteFinanceiro.Domain.Model
 {
@@ -12,8 +13,11 @@ namespace AssistenteFinanceiro.Domain.Model
         public decimal SaldoInicial { get; }
         public decimal SaldoAtual { get; }
 
+        public List<Transacao> Transacoes { get; }
+        public List<Orcamento> Orcamentos { get; }
+
         public DateTime DataCriacao { get; }
         public DateTime DataAtualizacao { get; }
-        public bool Apagada { get; }
+        public bool Apagado { get; }
     }
 }
