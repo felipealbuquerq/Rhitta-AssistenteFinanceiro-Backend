@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AssistenteFinanceiro.Infra.Functional\AssistenteFinanceiro.Infra.Functional.csproj" />
+    <ProjectReference Include="..\AssistenteFinanceiro.Infra.SharedKernel\AssistenteFinanceiro.Infra.SharedKernel.csproj" />
   </ItemGroup>
 
   <ItemGroup>
