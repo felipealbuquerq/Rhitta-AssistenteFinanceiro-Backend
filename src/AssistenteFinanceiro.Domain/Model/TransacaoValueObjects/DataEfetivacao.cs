@@ -10,7 +10,6 @@ namespace AssistenteFinanceiro.Domain.Model.TransacaoValueObjects
 
         private DataEfetivacao(DateTime data) => Data = data;
 
-        public static DataEfetivacao Default => new DataEfetivacao(DateTime.Today);
 
         public static Result<DataEfetivacao> Criar(DateTime? dataOuNada)
         {
@@ -26,5 +25,9 @@ namespace AssistenteFinanceiro.Domain.Model.TransacaoValueObjects
         {
             yield return Data;
         }
+
+        public static DataEfetivacao Default => new DataEfetivacao(DateTime.Today);
+
+        public static implicit operator DateTime(DataEfetivacao data) => data.Data;
     }
 }

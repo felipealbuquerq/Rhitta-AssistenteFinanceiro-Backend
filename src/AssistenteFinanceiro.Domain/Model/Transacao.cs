@@ -1,6 +1,7 @@
 ﻿using AssistenteFinanceiro.Domain.Enums;
 using AssistenteFinanceiro.Domain.Model.TransacaoValueObjects;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
+using System;
 
 namespace AssistenteFinanceiro.Domain.Model
 {
@@ -29,5 +30,6 @@ namespace AssistenteFinanceiro.Domain.Model
         
         public bool IsReceita() => Tipo == TipoTransacao.Receita;
         public bool IsDespesa() => !IsReceita();
+        public bool IsAtrasada() => !Efetivada && DataEfetivacao < DateTime.Today;
     }
 }
