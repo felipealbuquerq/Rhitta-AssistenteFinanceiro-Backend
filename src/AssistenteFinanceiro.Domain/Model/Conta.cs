@@ -1,6 +1,9 @@
-﻿using AssistenteFinanceiro.Domain.Model.ContaValueObjects;
+﻿using AssistenteFinanceiro.Domain.Enums;
+using AssistenteFinanceiro.Domain.Model.ContaValueObjects;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AssistenteFinanceiro.Domain.Model
 {
@@ -10,10 +13,11 @@ namespace AssistenteFinanceiro.Domain.Model
         {
         }
 
-        public Conta(NomeConta nome, DescricaoConta descricao, decimal saldoInicial = 0)
+        public Conta(NomeConta nome, DescricaoConta descricao, TipoConta tipo, decimal saldoInicial = 0)
         {
             Nome = nome;
             Descricao = descricao;
+            Tipo = tipo;
             SaldoInicial = saldoInicial;
             SaldoAtual = saldoInicial;
 
@@ -24,6 +28,7 @@ namespace AssistenteFinanceiro.Domain.Model
 
         public NomeConta Nome { get; }
         public DescricaoConta Descricao { get; }
+        public TipoConta Tipo { get; }
         public decimal SaldoInicial { get; }
         public decimal SaldoAtual { get; private set; }
 
@@ -31,8 +36,14 @@ namespace AssistenteFinanceiro.Domain.Model
         public List<Orcamento> Orcamentos { get; }
         public List<Objetivo> Objetivos { get; }
 
+        public List<Transacao> Receitas => Transacoes.Where(t => t.IsReceita()).ToList();
+        public List<Transacao> Despesas => Transacoes.Where(t => t.IsDespesa()).ToList();
+
         public void AdicionarTransacao(Transacao transacao)
         {
+            if (Transacoes.Contains(transacao))
+                return;
+
             if (transacao.IsReceita())
             {
                 SaldoAtual += transacao.Valor;
@@ -47,6 +58,9 @@ namespace AssistenteFinanceiro.Domain.Model
 
         public void RemoverTransacao(Transacao transacao)
         {
+            if (!Transacoes.Contains(transacao))
+                return;
+
             if (transacao.IsDespesa())
             {
                 SaldoAtual += transacao.Valor;
