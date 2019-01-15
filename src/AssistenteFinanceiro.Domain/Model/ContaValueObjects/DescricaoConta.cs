@@ -25,5 +25,7 @@ namespace AssistenteFinanceiro.Domain.Model.ContaValueObjects
         {
             yield return Descricao;
         }
+
+        public static implicit operator string(DescricaoConta descricao) => descricao.Descricao;
     }
 }
