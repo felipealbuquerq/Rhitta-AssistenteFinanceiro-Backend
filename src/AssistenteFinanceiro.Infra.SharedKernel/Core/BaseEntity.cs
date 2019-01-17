@@ -1,7 +1,7 @@
 ﻿using System;
 namespace AssistenteFinanceiro.Infra.SharedKernel.Core
 {
-    public class AggregateRoot
+    public class BaseEntity
     {
         public Guid Codigo { get; protected set; }
         public DateTime DataCriacao { get; protected set; }

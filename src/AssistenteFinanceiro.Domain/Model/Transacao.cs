@@ -5,7 +5,7 @@ using System;
 
 namespace AssistenteFinanceiro.Domain.Model
 {
-    public class Transacao : AggregateRoot
+    public class Transacao : BaseEntity
     {
         public Transacao(Conta conta, ValorTransacao valor, TipoTransacao tipo, DataEfetivacao dataEfetivacao)
         {

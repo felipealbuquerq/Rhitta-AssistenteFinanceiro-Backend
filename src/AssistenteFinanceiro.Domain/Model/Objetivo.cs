@@ -3,7 +3,7 @@ using AssistenteFinanceiro.Infra.SharedKernel.Core;
 
 namespace AssistenteFinanceiro.Domain.Model
 {
-    public class Objetivo : AggregateRoot
+    public class Objetivo : BaseEntity
     {
         public Objetivo(Conta conta, ValorObjetivo valor)
         {

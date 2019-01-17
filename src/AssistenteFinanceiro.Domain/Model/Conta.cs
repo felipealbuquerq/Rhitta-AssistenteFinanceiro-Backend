@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace AssistenteFinanceiro.Domain.Model
 {
-    public class Conta : AggregateRoot
+    public class Conta : BaseEntity
     {
         protected Conta()
         {

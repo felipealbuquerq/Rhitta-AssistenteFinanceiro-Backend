@@ -2,7 +2,7 @@
 
 namespace AssistenteFinanceiro.Domain.Model
 {
-    public class Orcamento : AggregateRoot
+    public class Orcamento : BaseEntity
     {
         public Conta Conta { get; }
     }
