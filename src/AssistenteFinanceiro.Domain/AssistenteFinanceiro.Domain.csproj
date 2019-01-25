@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\OrcamentoValueObjects\" />
+    <Folder Include="Model\Orcamentos\ValueObjects\" />
   </ItemGroup>
 
 </Project>
