@@ -19,7 +19,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistenteFinanceiro.Infra.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistenteFinanceiro.Infra.SharedKernel", "src\AssistenteFinanceiro.Infra.SharedKernel\AssistenteFinanceiro.Infra.SharedKernel.csproj", "{2FF701A0-1CB8-444C-9907-18D3D9476661}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssistenteFinanceiro.Infra.Database", "src\AssistenteFinanceiro.Infra.Database\AssistenteFinanceiro.Infra.Database.csproj", "{57B9331C-2CB9-4A0E-9376-8F622CB86C56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistenteFinanceiro.Infra.Database", "src\AssistenteFinanceiro.Infra.Database\AssistenteFinanceiro.Infra.Database.csproj", "{57B9331C-2CB9-4A0E-9376-8F622CB86C56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database_scripts", "database_scripts", "{D615D7CA-831E-47CF-9C3D-557A787C0D19}"
+	ProjectSection(SolutionItems) = preProject
+		docs\database_scripts\create_schema.sql = docs\database_scripts\create_schema.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +59,7 @@ Global
 		{A7761B32-8F96-46B5-9FDD-202097E8FDE1} = {415BAD18-43A2-4623-877A-15D9D64820E9}
 		{2FF701A0-1CB8-444C-9907-18D3D9476661} = {415BAD18-43A2-4623-877A-15D9D64820E9}
 		{57B9331C-2CB9-4A0E-9376-8F622CB86C56} = {415BAD18-43A2-4623-877A-15D9D64820E9}
+		{D615D7CA-831E-47CF-9C3D-557A787C0D19} = {8736B7DD-D6AD-4661-8F62-21AB030C7743}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B0A93E2-F3D1-4FC7-A436-7F6CE9A7A953}
