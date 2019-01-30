@@ -32,12 +32,15 @@ namespace AssistenteFinanceiro.Domain.Model
         public decimal SaldoInicial { get; }
         public decimal SaldoAtual { get; private set; }
 
-        public List<Transacao> Transacoes { get; }
-        public List<Orcamento> Orcamentos { get; }
-        public List<Objetivo> Objetivos { get; }
+        public ICollection<Transacao> Transacoes { get; }
+        public ICollection<Orcamento> Orcamentos { get; }
+        public ICollection<Objetivo> Objetivos { get; }
 
-        public List<Transacao> Receitas => Transacoes.Where(t => t.IsReceita()).ToList();
-        public List<Transacao> Despesas => Transacoes.Where(t => t.IsDespesa()).ToList();
+        public IEnumerable<Transacao> Receitas => Transacoes.Where(t => t.IsReceita());
+        public IEnumerable<Transacao> Despesas => Transacoes.Where(t => t.IsDespesa());
+
+        public int TransacoesRealizadas() => Transacoes.Count(t => t.Efetivada);
+        public int TransacoesPendentes() => Transacoes.Count(t => !t.Efetivada);
 
         public void AdicionarTransacao(Transacao transacao)
         {
