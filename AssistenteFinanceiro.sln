@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28407.52
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36557A79-A1F0-4A82-8E7D-6377AD12DC5D}"
 EndProject
@@ -11,13 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{31168122
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Domain", "0 - Domain", "{6C79C826-2C4D-461F-9945-EADDFCDB67AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssistenteFinanceiro.Domain", "src\AssistenteFinanceiro.Domain\AssistenteFinanceiro.Domain.csproj", "{3514ABC5-C8D0-4A3F-809E-9E5C81794764}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistenteFinanceiro.Domain", "src\AssistenteFinanceiro.Domain\AssistenteFinanceiro.Domain.csproj", "{3514ABC5-C8D0-4A3F-809E-9E5C81794764}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Infra", "1 - Infra", "{415BAD18-43A2-4623-877A-15D9D64820E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssistenteFinanceiro.Infra.Functional", "src\AssistenteFinanceiro.Infra.Functional\AssistenteFinanceiro.Infra.Functional.csproj", "{A7761B32-8F96-46B5-9FDD-202097E8FDE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistenteFinanceiro.Infra.Functional", "src\AssistenteFinanceiro.Infra.Functional\AssistenteFinanceiro.Infra.Functional.csproj", "{A7761B32-8F96-46B5-9FDD-202097E8FDE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssistenteFinanceiro.Infra.SharedKernel", "src\AssistenteFinanceiro.Infra.SharedKernel\AssistenteFinanceiro.Infra.SharedKernel.csproj", "{2FF701A0-1CB8-444C-9907-18D3D9476661}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistenteFinanceiro.Infra.SharedKernel", "src\AssistenteFinanceiro.Infra.SharedKernel\AssistenteFinanceiro.Infra.SharedKernel.csproj", "{2FF701A0-1CB8-444C-9907-18D3D9476661}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssistenteFinanceiro.Infra.Database", "src\AssistenteFinanceiro.Infra.Database\AssistenteFinanceiro.Infra.Database.csproj", "{57B9331C-2CB9-4A0E-9376-8F622CB86C56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{2FF701A0-1CB8-444C-9907-18D3D9476661}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FF701A0-1CB8-444C-9907-18D3D9476661}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FF701A0-1CB8-444C-9907-18D3D9476661}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B9331C-2CB9-4A0E-9376-8F622CB86C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B9331C-2CB9-4A0E-9376-8F622CB86C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B9331C-2CB9-4A0E-9376-8F622CB86C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B9331C-2CB9-4A0E-9376-8F622CB86C56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 		{415BAD18-43A2-4623-877A-15D9D64820E9} = {36557A79-A1F0-4A82-8E7D-6377AD12DC5D}
 		{A7761B32-8F96-46B5-9FDD-202097E8FDE1} = {415BAD18-43A2-4623-877A-15D9D64820E9}
 		{2FF701A0-1CB8-444C-9907-18D3D9476661} = {415BAD18-43A2-4623-877A-15D9D64820E9}
+		{57B9331C-2CB9-4A0E-9376-8F622CB86C56} = {415BAD18-43A2-4623-877A-15D9D64820E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B0A93E2-F3D1-4FC7-A436-7F6CE9A7A953}
