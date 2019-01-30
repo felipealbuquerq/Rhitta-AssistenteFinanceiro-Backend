@@ -1,6 +1,5 @@
 ﻿using AssistenteFinanceiro.Domain.Enums;
 using AssistenteFinanceiro.Domain.Model.Contas.ValueObjects;
-using AssistenteFinanceiro.Domain.Model.ContaValueObjects;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +12,11 @@ namespace AssistenteFinanceiro.Domain.Model
         {
         }
 
-        public Conta(NomeConta nome, DescricaoConta descricao, IconeConta icone, TipoConta tipo, decimal saldoInicial = 0)
+        public Conta(NomeConta nome, DescricaoConta descricao, IconeConta icone, decimal saldoInicial = 0)
         {
             Nome = nome;
             Descricao = descricao;
             Icone = icone;
-            Tipo = tipo;
             SaldoInicial = saldoInicial;
             SaldoAtual = saldoInicial;
 
@@ -30,7 +28,6 @@ namespace AssistenteFinanceiro.Domain.Model
         public NomeConta Nome { get; }
         public DescricaoConta Descricao { get; }
         public IconeConta Icone { get; }
-        public TipoConta Tipo { get; }
         public decimal SaldoInicial { get; }
         public decimal SaldoAtual { get; private set; }
 

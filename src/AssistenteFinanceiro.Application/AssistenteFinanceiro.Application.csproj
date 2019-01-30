@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="QueriesResponses\" />
+    <Folder Include="Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AssistenteFinanceiro.Domain\AssistenteFinanceiro.Domain.csproj" />
+    <ProjectReference Include="..\AssistenteFinanceiro.Infra.Functional\AssistenteFinanceiro.Infra.Functional.csproj" />
+    <ProjectReference Include="..\AssistenteFinanceiro.Infra.SharedKernel\AssistenteFinanceiro.Infra.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

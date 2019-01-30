@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AssistenteFinanceiro.Infra.Functional\AssistenteFinanceiro.Infra.Functional.csproj" />
+  </ItemGroup>
+
 </Project>

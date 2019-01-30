@@ -14,7 +14,6 @@ namespace AssistenteFinanceiro.Infra.Database.MappingConfigurations
 
             //Properties
             builder.Property(c => c.Codigo).HasColumnName("CODIGO");
-            builder.Property(c => c.Tipo).HasColumnName("TIPO");
             builder.Property(c => c.SaldoInicial).HasColumnName("SALDO_INICIAL");
             builder.Property(c => c.SaldoAtual).HasColumnName("SALDO_ATUAL");
 

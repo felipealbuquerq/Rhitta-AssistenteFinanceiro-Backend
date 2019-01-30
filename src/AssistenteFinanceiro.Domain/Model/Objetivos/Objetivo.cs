@@ -1,4 +1,4 @@
-﻿using AssistenteFinanceiro.Domain.Model.ObjetivoValueObjects;
+﻿using AssistenteFinanceiro.Domain.Model.Objetivos.ValueObjects;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
 
 namespace AssistenteFinanceiro.Domain.Model
