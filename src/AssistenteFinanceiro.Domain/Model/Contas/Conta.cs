@@ -1,4 +1,5 @@
 ﻿using AssistenteFinanceiro.Domain.Enums;
+using AssistenteFinanceiro.Domain.Model.Contas.ValueObjects;
 using AssistenteFinanceiro.Domain.Model.ContaValueObjects;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
 using System;
@@ -28,6 +29,7 @@ namespace AssistenteFinanceiro.Domain.Model
 
         public NomeConta Nome { get; }
         public DescricaoConta Descricao { get; }
+        public IconeConta Icone { get; }
         public TipoConta Tipo { get; }
         public decimal SaldoInicial { get; }
         public decimal SaldoAtual { get; private set; }
