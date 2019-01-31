@@ -5,5 +5,9 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AssistenteFinanceiro.Application.Infra.Ioc\AssistenteFinanceiro.Application.Infra.Ioc.csproj" />
+  </ItemGroup>
+
 
 </Project>
