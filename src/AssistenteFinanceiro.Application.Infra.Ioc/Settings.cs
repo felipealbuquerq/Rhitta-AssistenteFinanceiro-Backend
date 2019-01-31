@@ -8,7 +8,7 @@ namespace AssistenteFinanceiro.Application.Infra.Ioc
     {
         public static void AddSettingsIoc(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<DatabaseSettings>(configuration);
+            services.Configure<DatabaseSettings>(configuration.GetSection("DatabaseSettings"));
         }
     }
 }

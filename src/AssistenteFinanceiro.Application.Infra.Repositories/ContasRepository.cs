@@ -15,6 +15,7 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
 
         public void AdicionarConta(Conta conta)
         {
+            conta.MarcarComoAtualizado();
             _context.Contas.Add(conta);
             _context.SaveChanges();
         }

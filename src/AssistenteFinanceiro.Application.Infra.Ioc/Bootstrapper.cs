@@ -12,6 +12,7 @@ namespace AssistenteFinanceiro.Application.Infra.Ioc
         {
             services.AddSettingsIoc(configuration);
             services.AddRepositoriesIoc();
+            services.AddServicesIoc();
         }
     }
 }

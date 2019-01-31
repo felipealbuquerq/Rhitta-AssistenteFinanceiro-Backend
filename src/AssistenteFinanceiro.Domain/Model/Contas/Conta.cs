@@ -1,6 +1,7 @@
 ﻿using AssistenteFinanceiro.Domain.Enums;
 using AssistenteFinanceiro.Domain.Model.Contas.ValueObjects;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,60 +20,61 @@ namespace AssistenteFinanceiro.Domain.Model
             Icone = icone;
             SaldoInicial = saldoInicial;
             SaldoAtual = saldoInicial;
+            DataCriacao = DateTime.Now;
 
-            Transacoes = new List<Transacao>();
-            Orcamentos = new List<Orcamento>();
-            Objetivos = new List<Objetivo>();
+            //Transacoes = new List<Transacao>();
+            //Orcamentos = new List<Orcamento>();
+            //Objetivos = new List<Objetivo>();
         }
 
-        public NomeConta Nome { get; }
-        public DescricaoConta Descricao { get; }
-        public IconeConta Icone { get; }
-        public decimal SaldoInicial { get; }
+        public NomeConta Nome { get; private set; }
+        public DescricaoConta Descricao { get; private set; }
+        public IconeConta Icone { get; private set; }
+        public decimal SaldoInicial { get; private set; }
         public decimal SaldoAtual { get; private set; }
 
-        public ICollection<Transacao> Transacoes { get; }
-        public ICollection<Orcamento> Orcamentos { get; }
-        public ICollection<Objetivo> Objetivos { get; }
+        //public ICollection<Transacao> Transacoes { get; }
+        //public ICollection<Orcamento> Orcamentos { get; }
+        //public ICollection<Objetivo> Objetivos { get; }
 
-        public IEnumerable<Transacao> Receitas => Transacoes.Where(t => t.IsReceita());
-        public IEnumerable<Transacao> Despesas => Transacoes.Where(t => t.IsDespesa());
+        //public IEnumerable<Transacao> Receitas => Transacoes.Where(t => t.IsReceita());
+        //public IEnumerable<Transacao> Despesas => Transacoes.Where(t => t.IsDespesa());
 
-        public int TransacoesRealizadas() => Transacoes.Count(t => t.Efetivada);
-        public int TransacoesPendentes() => Transacoes.Count(t => !t.Efetivada);
+        //public int TransacoesRealizadas() => Transacoes.Count(t => t.Efetivada);
+        //public int TransacoesPendentes() => Transacoes.Count(t => !t.Efetivada);
 
-        public void AdicionarTransacao(Transacao transacao)
-        {
-            if (Transacoes.Contains(transacao))
-                return;
+        //public void AdicionarTransacao(Transacao transacao)
+        //{
+        //    if (Transacoes.Contains(transacao))
+        //        return;
 
-            if (transacao.IsReceita())
-            {
-                SaldoAtual += transacao.Valor;
-            } 
-            else
-            {
-                SaldoAtual -= transacao.Valor;
-            }
+        //    if (transacao.IsReceita())
+        //    {
+        //        SaldoAtual += transacao.Valor;
+        //    } 
+        //    else
+        //    {
+        //        SaldoAtual -= transacao.Valor;
+        //    }
 
-            Transacoes.Add(transacao);          
-        }
+        //    Transacoes.Add(transacao);          
+        //}
 
-        public void RemoverTransacao(Transacao transacao)
-        {
-            if (!Transacoes.Contains(transacao))
-                return;
+        //public void RemoverTransacao(Transacao transacao)
+        //{
+        //    if (!Transacoes.Contains(transacao))
+        //        return;
 
-            if (transacao.IsDespesa())
-            {
-                SaldoAtual += transacao.Valor;
-            }
-            else
-            {
-                SaldoAtual -= transacao.Valor;
-            }
+        //    if (transacao.IsDespesa())
+        //    {
+        //        SaldoAtual += transacao.Valor;
+        //    }
+        //    else
+        //    {
+        //        SaldoAtual -= transacao.Valor;
+        //    }
 
-            Transacoes.Remove(transacao);
-        }
+        //    Transacoes.Remove(transacao);
+        //}
     }
 }

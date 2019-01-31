@@ -7,5 +7,7 @@ namespace AssistenteFinanceiro.Infra.SharedKernel.Core
         public DateTime DataCriacao { get; protected set; }
         public DateTime DataAtualizacao { get; protected set; }
         public bool Apagado { get; protected set; }
+
+        public void MarcarComoAtualizado() => DataAtualizacao = DateTime.Now;
     }
 }

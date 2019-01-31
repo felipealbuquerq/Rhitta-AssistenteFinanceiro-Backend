@@ -19,13 +19,12 @@ namespace AssistenteFinanceiro.Infra.Database.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.HasDefaultSchema("public");
             modelBuilder.ApplyConfiguration(new ContasConfiguration());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseNpgsql(_settings.ConnectionString);
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
