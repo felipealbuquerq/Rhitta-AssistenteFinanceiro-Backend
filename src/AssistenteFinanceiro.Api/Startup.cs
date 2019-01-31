@@ -37,6 +37,8 @@ namespace AssistenteFinanceiro.Api
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.ConfigureHttp2Response();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
