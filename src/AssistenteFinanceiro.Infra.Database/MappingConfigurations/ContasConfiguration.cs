@@ -27,9 +27,9 @@ namespace AssistenteFinanceiro.Infra.Database.MappingConfigurations
             });
 
             //Relationships
-            builder.HasMany(c => c.Transacoes).WithOne(t => t.Conta);
-            builder.HasMany(c => c.Orcamentos).WithOne(o => o.Conta);
-            builder.HasMany(c => c.Objetivos).WithOne(o => o.Conta);
+            //builder.HasMany(c => c.Transacoes).WithOne(t => t.Conta);
+            //builder.HasMany(c => c.Orcamentos).WithOne(o => o.Conta);
+            //builder.HasMany(c => c.Objetivos).WithOne(o => o.Conta);
         }
     }
 }

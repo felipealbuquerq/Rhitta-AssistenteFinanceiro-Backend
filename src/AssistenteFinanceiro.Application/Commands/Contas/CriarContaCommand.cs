@@ -7,20 +7,11 @@ namespace AssistenteFinanceiro.Application.Commands.Contas
 {
     public class CriarContaCommand : ICommand<Conta>
     {
-        public CriarContaCommand(string nome, string descricao, string icone, string corIcone, decimal valorInicial)
-        {
-            Nome = nome;
-            Descricao = descricao;
-            Icone = icone;
-            CorIcone = corIcone;
-            ValorInicial = valorInicial;
-        }
-
-        public string Nome { get; }
-        public string Descricao { get; }
-        public string Icone { get; }
-        public string CorIcone { get; }
-        public decimal ValorInicial { get; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public string Icone { get; set; }
+        public string CorIcone { get; set; }
+        public decimal ValorInicial { get; set; }
 
         public Result<Conta> Validate()
         {
