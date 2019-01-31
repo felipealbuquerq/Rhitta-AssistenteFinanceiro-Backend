@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace AssistenteFinanceiro.Api
@@ -20,6 +21,12 @@ namespace AssistenteFinanceiro.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.InitRhittaIoc(Configuration);
+
+            services.AddLogging(builder =>
+            {
+                builder.ClearProviders();
+                builder.AddDebug();
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSwaggerGen(c =>
