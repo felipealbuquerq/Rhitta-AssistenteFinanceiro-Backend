@@ -1,5 +1,7 @@
-﻿using AssistenteFinanceiro.Application.Interfaces.Repositories;
+﻿using System.Collections.Generic;
+using AssistenteFinanceiro.Application.Interfaces.Repositories;
 using AssistenteFinanceiro.Application.Interfaces.Services;
+using AssistenteFinanceiro.Application.QueriesResponses;
 using AssistenteFinanceiro.Domain.Model;
 using AssistenteFinanceiro.Infra.SharedKernel.Command;
 using InsurSoft.Backend.Shared.Functional;
@@ -25,6 +27,11 @@ namespace AssistenteFinanceiro.Application.Services
             _repository.AdicionarConta(validation.Value);
 
             return Result.Ok();
+        }
+
+        public List<ContaPreview> ObterPreviews()
+        {
+            return _repository.ObterPreviews();
         }
     }
 }

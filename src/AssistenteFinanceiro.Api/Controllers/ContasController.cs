@@ -1,5 +1,6 @@
 ﻿using AssistenteFinanceiro.Application.Commands.Contas;
 using AssistenteFinanceiro.Application.Interfaces.Services;
+using AssistenteFinanceiro.Application.QueriesResponses;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -17,12 +18,11 @@ namespace AssistenteFinanceiro.Api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult<List<ContaPreview>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(_service.ObterPreviews());
         }
         
-
         [HttpPost]
         public ActionResult Post([FromBody] CriarContaCommand command)
         {
