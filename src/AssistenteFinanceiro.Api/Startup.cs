@@ -1,4 +1,5 @@
-﻿using AssistenteFinanceiro.Application.Infra.Ioc;
+﻿using AssistenteFinanceiro.Api.Configurations;
+using AssistenteFinanceiro.Application.Infra.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -20,14 +21,13 @@ namespace AssistenteFinanceiro.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.ConfigureRhittaCors();
             services.InitRhittaIoc(Configuration);
-
             services.AddLogging(builder =>
             {
                 builder.ClearProviders();
                 builder.AddDebug();
             });
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSwaggerGen(c =>
             {
@@ -46,6 +46,7 @@ namespace AssistenteFinanceiro.Api
                 app.UseHsts();
             }
 
+            app.UseRhittaCors();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

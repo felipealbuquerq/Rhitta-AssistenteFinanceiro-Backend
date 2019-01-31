@@ -30,7 +30,7 @@ namespace AssistenteFinanceiro.Api.Controllers
             if (response.IsFailure)
                 return BadRequest(response.Errors);
 
-            return Created(string.Empty, null);
+            return Ok();
         }
     }
 }
