@@ -2,6 +2,7 @@
 using AssistenteFinanceiro.Application.Interfaces.Services;
 using AssistenteFinanceiro.Application.QueriesResponses;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 
@@ -27,6 +28,16 @@ namespace AssistenteFinanceiro.Api.Controllers
         public ActionResult Post([FromBody] CriarContaCommand command)
         {
             var response = _service.CriarConta(command);
+            if (response.IsFailure)
+                return BadRequest(response.Errors);
+
+            return Ok();
+        }
+
+        [HttpDelete("{codigo:guid}")]
+        public ActionResult Delete(Guid codigo)
+        {
+            var response = _service.RemoverConta(new RemoverContaCommand(codigo));
             if (response.IsFailure)
                 return BadRequest(response.Errors);
 

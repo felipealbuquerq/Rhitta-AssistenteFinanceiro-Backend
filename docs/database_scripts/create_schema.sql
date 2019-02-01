@@ -1,4 +1,4 @@
-CREATE EXTENSION "pgcrypto";
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 create table CONTAS( 
 	CODIGO uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,

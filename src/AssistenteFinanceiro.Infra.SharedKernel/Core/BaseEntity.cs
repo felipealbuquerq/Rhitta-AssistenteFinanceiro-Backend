@@ -9,5 +9,6 @@ namespace AssistenteFinanceiro.Infra.SharedKernel.Core
         public bool Apagado { get; protected set; }
 
         public void MarcarComoAtualizado() => DataAtualizacao = DateTime.Now;
+        public void MarcarComoRemovido() => Apagado = true;
     }
 }

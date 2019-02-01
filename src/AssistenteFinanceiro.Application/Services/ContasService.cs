@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AssistenteFinanceiro.Application.Interfaces.Repositories;
 using AssistenteFinanceiro.Application.Interfaces.Services;
 using AssistenteFinanceiro.Application.QueriesResponses;
@@ -32,6 +33,17 @@ namespace AssistenteFinanceiro.Application.Services
         public List<ContaPreview> ObterPreviews()
         {
             return _repository.ObterPreviews();
+        }
+
+        public Result RemoverConta(ICommand<Guid> command)
+        {
+            var validation = command.Validate();
+            if (validation.IsFailure)
+                return validation;
+
+            _repository.RemoverConta(validation.Value);
+
+            return Result.Ok();
         }
     }
 }

@@ -31,7 +31,6 @@ namespace AssistenteFinanceiro.Infra.Database.Context
         {
             optionsBuilder.UseLoggerFactory(_loggerFactory);
             optionsBuilder.UseNpgsql(_settings.ConnectionString);
-            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
     }
 }
