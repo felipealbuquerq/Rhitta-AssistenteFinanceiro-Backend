@@ -2,6 +2,7 @@
 using AssistenteFinanceiro.Application.QueriesResponses;
 using AssistenteFinanceiro.Domain.Model;
 using AssistenteFinanceiro.Infra.Database.Context;
+using InsurSoft.Backend.Shared.Functional;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,13 +52,33 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
 
             return contas
                 .Select(c => new ContaPreview(
-                    c.Codigo, 
-                    c.Nome, 
-                    c.Icone, 
-                    c.Cor, 
-                    c.SaldoAtual, 
+                    c.Codigo,
+                    c.Nome,
+                    c.Icone,
+                    c.Cor,
+                    c.SaldoAtual,
                     c.SaldoAtual))
                 .ToList();
+        }
+
+        public Maybe<ContaPreview> ObterPreview(Guid id)
+        {
+            var conta = _context.Contas
+                .Where(c => !c.Apagado)
+                .Select(c => new
+                {
+                    c.Codigo,
+                    c.Nome.Nome,
+                    c.Icone.Icone,
+                    c.Icone.Cor,
+                    c.SaldoAtual
+                })
+                .FirstOrDefault();
+
+            if (conta == null)
+                return null;
+
+            return new ContaPreview(conta.Codigo, conta.Nome, conta.Icone, conta.Cor, conta.SaldoAtual, conta.SaldoAtual);
         }
     }
 }

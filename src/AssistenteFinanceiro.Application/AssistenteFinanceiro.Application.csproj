@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AssistenteFinanceiro.Domain\AssistenteFinanceiro.Domain.csproj" />
     <ProjectReference Include="..\AssistenteFinanceiro.Infra.Functional\AssistenteFinanceiro.Infra.Functional.csproj" />
     <ProjectReference Include="..\AssistenteFinanceiro.Infra.SharedKernel\AssistenteFinanceiro.Infra.SharedKernel.csproj" />

@@ -1,5 +1,6 @@
 ﻿using AssistenteFinanceiro.Application.Commands.Contas;
 using AssistenteFinanceiro.Application.Interfaces.Services;
+using AssistenteFinanceiro.Application.Queries;
 using AssistenteFinanceiro.Application.QueriesResponses;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,6 +23,17 @@ namespace AssistenteFinanceiro.Api.Controllers
         public ActionResult<List<ContaPreview>> Get()
         {
             return Ok(_service.ObterPreviews());
+        }
+
+        [HttpGet("{codigo:guid}")]
+        public ActionResult<ContaPreview> Get(Guid codigo)
+        {
+            var result = _service.ObterPreview(new ObterPreviewQuery(codigo));
+
+            if (result.IsFailure)
+                return BadRequest(result.Errors);
+
+            return Ok(result.Value);
         }
         
         [HttpPost]
