@@ -1,8 +1,6 @@
 ﻿using AssistenteFinanceiro.Infra.SharedKernel.Query;
 using InsurSoft.Backend.Shared.Functional;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AssistenteFinanceiro.Application.Queries
 {
