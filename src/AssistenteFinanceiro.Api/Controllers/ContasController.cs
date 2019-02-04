@@ -5,10 +5,11 @@ using AssistenteFinanceiro.Application.QueriesResponses;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-
+using Microsoft.AspNetCore.Http;
 
 namespace AssistenteFinanceiro.Api.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
     public class ContasController : Controller
     {
@@ -26,6 +27,9 @@ namespace AssistenteFinanceiro.Api.Controllers
         }
 
         [HttpGet("{codigo:guid}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string[]), StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
         public ActionResult<ContaPreview> Get(Guid codigo)
         {
             var result = _service.ObterPreview(new ObterPreviewQuery(codigo));
@@ -37,6 +41,9 @@ namespace AssistenteFinanceiro.Api.Controllers
         }
         
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string[]), StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
         public ActionResult Post([FromBody] CriarContaCommand command)
         {
             var response = _service.CriarConta(command);
@@ -47,6 +54,9 @@ namespace AssistenteFinanceiro.Api.Controllers
         }
 
         [HttpDelete("{codigo:guid}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string[]), StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
         public ActionResult Delete(Guid codigo)
         {
             var response = _service.RemoverConta(new RemoverContaCommand(codigo));
