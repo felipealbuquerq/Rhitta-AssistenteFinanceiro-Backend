@@ -65,5 +65,18 @@ namespace AssistenteFinanceiro.Api.Controllers
 
             return Ok();
         }
+
+        [HttpPut("{codigo:guid}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string[]), StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
+        public ActionResult Put([FromBody] AtualizarContaCommand command)
+        {
+            var response = _service.AtualizarConta(command);
+            if (response.IsFailure)
+                return BadRequest(response.Errors);
+
+            return Ok();
+        }
     }
 }

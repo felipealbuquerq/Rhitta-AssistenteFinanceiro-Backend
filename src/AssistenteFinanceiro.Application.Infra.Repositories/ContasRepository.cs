@@ -25,6 +25,13 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
             _context.SaveChanges();
         }
 
+        public void AtualizarConta(Conta conta)
+        {
+            conta.MarcarComoAtualizado();
+            _context.Entry(conta).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+        }
+
         public void RemoverConta(Guid id)
         {
             var conta = _context.Contas.Find(id);
@@ -34,6 +41,11 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
             conta.MarcarComoRemovido();
             conta.MarcarComoAtualizado();
             _context.SaveChanges();
+        }
+
+        public Maybe<Conta> ObterConta(Guid id)
+        {
+            return _context.Contas.Find(id);
         }
 
         public List<ContaPreview> ObterPreviews()

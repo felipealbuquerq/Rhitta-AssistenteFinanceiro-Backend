@@ -9,7 +9,9 @@ namespace AssistenteFinanceiro.Application.Interfaces.Repositories
     public interface IContasRepository
     {
         void AdicionarConta(Conta conta);
+        void AtualizarConta(Conta conta);
         void RemoverConta(Guid id);
+        Maybe<Conta> ObterConta(Guid id);
         List<ContaPreview> ObterPreviews();
         Maybe<ContaPreview> ObterPreview(Guid id);
     }

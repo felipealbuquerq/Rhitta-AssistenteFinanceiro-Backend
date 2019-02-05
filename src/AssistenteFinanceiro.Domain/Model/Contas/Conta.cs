@@ -13,6 +13,14 @@ namespace AssistenteFinanceiro.Domain.Model
         {
         }
 
+        public Conta(Guid codigo, NomeConta nome, DescricaoConta descricao, IconeConta icone)
+        {
+            Codigo = codigo;
+            Nome = nome;
+            Descricao = descricao;
+            Icone = icone;
+        }
+
         public Conta(NomeConta nome, DescricaoConta descricao, IconeConta icone, decimal saldoInicial = 0)
         {
             Nome = nome;
@@ -32,6 +40,16 @@ namespace AssistenteFinanceiro.Domain.Model
         public IconeConta Icone { get; private set; }
         public decimal SaldoInicial { get; private set; }
         public decimal SaldoAtual { get; private set; }
+
+        public void Renomear(NomeConta novoNome)
+        {
+            Nome = novoNome;
+        }
+
+        public void AtualizarIcone(IconeConta novoIcone)
+        {
+            Icone = novoIcone;
+        }
 
         //public ICollection<Transacao> Transacoes { get; }
         //public ICollection<Orcamento> Orcamentos { get; }

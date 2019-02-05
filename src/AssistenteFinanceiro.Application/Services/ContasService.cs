@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AssistenteFinanceiro.Application.Commands.Contas;
 using AssistenteFinanceiro.Application.Interfaces.Repositories;
 using AssistenteFinanceiro.Application.Interfaces.Services;
+using AssistenteFinanceiro.Application.Queries;
 using AssistenteFinanceiro.Application.QueriesResponses;
-using AssistenteFinanceiro.Domain.Model;
-using AssistenteFinanceiro.Infra.SharedKernel.Command;
-using AssistenteFinanceiro.Infra.SharedKernel.Query;
 using InsurSoft.Backend.Shared.Functional;
+using System.Collections.Generic;
 
 namespace AssistenteFinanceiro.Application.Services
 {
@@ -19,7 +17,7 @@ namespace AssistenteFinanceiro.Application.Services
             _repository = repository;
         }
 
-        public Result CriarConta(ICommand<Conta> command)
+        public Result CriarConta(CriarContaCommand command)
         {
             var result = command.Validate();
 
@@ -31,7 +29,27 @@ namespace AssistenteFinanceiro.Application.Services
             return Result.Ok();
         }
 
-        public Result<ContaPreview> ObterPreview(IQuery<Guid> query)
+        public Result AtualizarConta(AtualizarContaCommand command)
+        {
+            var result = command.Validate();
+            if (result.IsFailure)
+                return result;
+
+            var contaOrNothing = _repository.ObterConta(command.Codigo);
+
+            if (contaOrNothing.HasNoValue)
+                return Result.Fail("Não existe uma conta com o código especificado");
+
+            var conta = contaOrNothing.Value;
+            conta.Renomear(result.Value.Nome);
+            conta.AtualizarIcone(result.Value.Icone);
+
+            _repository.AtualizarConta(conta);
+
+            return Result.Ok();
+        }
+
+        public Result<ContaPreview> ObterPreview(ObterPreviewQuery query)
         {
             var result = query.Validate();
 
@@ -51,7 +69,7 @@ namespace AssistenteFinanceiro.Application.Services
             return _repository.ObterPreviews();
         }
 
-        public Result RemoverConta(ICommand<Guid> command)
+        public Result RemoverConta(RemoverContaCommand command)
         {
             var result = command.Validate();
             if (result.IsFailure)
