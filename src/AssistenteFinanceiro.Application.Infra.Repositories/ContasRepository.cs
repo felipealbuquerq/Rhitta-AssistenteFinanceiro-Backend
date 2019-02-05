@@ -52,6 +52,7 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
         {
             var contas = _context.Contas
                 .Where(c => !c.Apagado)
+                .OrderBy(c => c.DataCriacao)
                 .Select(c => new
                 {
                     c.Codigo,
