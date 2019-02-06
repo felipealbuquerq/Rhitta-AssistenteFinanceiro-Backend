@@ -50,48 +50,31 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
 
         public List<ContaPreview> ObterPreviews()
         {
-            var contas = _context.Contas
+            return _context.Contas
                 .Where(c => !c.Apagado)
                 .OrderBy(c => c.DataCriacao)
-                .Select(c => new
-                {
+                .Select(c => new ContaPreview(
                     c.Codigo,
                     c.Nome.Nome,
                     c.Icone.Icone,
                     c.Icone.Cor,
-                    c.SaldoAtual
-                }
-            );
-
-            return contas
-                .Select(c => new ContaPreview(
-                    c.Codigo,
-                    c.Nome,
-                    c.Icone,
-                    c.Cor,
                     c.SaldoAtual,
                     c.SaldoAtual))
-                .ToList();
+                 .ToList();
         }
 
         public Maybe<ContaPreview> ObterPreview(Guid id)
         {
-            var conta = _context.Contas
+            return _context.Contas
                 .Where(c => !c.Apagado)
-                .Select(c => new
-                {
+                .Select(c => new ContaPreview(
                     c.Codigo,
                     c.Nome.Nome,
                     c.Icone.Icone,
                     c.Icone.Cor,
-                    c.SaldoAtual
-                })
+                    c.SaldoAtual,
+                    c.SaldoAtual))
                 .FirstOrDefault();
-
-            if (conta == null)
-                return null;
-
-            return new ContaPreview(conta.Codigo, conta.Nome, conta.Icone, conta.Cor, conta.SaldoAtual, conta.SaldoAtual);
         }
     }
 }
