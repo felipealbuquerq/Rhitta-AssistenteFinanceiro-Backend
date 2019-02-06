@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
+using AssistenteFinanceiro.Api.Controllers.Base;
 
 namespace AssistenteFinanceiro.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ContasController : Controller
+    public class ContasController : ApiController
     {
         private readonly IContasService _service;
 
@@ -33,11 +34,7 @@ namespace AssistenteFinanceiro.Api.Controllers
         public ActionResult<ContaPreview> Get(Guid codigo)
         {
             var result = _service.ObterPreview(new ObterPreviewQuery(codigo));
-
-            if (result.IsFailure)
-                return BadRequest(result.Errors);
-
-            return Ok(result.Value);
+            return Result(result);
         }
         
         [HttpPost]
@@ -47,10 +44,7 @@ namespace AssistenteFinanceiro.Api.Controllers
         public ActionResult Post([FromBody] CriarContaCommand command)
         {
             var response = _service.CriarConta(command);
-            if (response.IsFailure)
-                return BadRequest(response.Errors);
-
-            return Ok();
+            return Result(response);
         }
 
         [HttpDelete("{codigo:guid}")]
@@ -60,10 +54,7 @@ namespace AssistenteFinanceiro.Api.Controllers
         public ActionResult Delete(Guid codigo)
         {
             var response = _service.RemoverConta(new RemoverContaCommand(codigo));
-            if (response.IsFailure)
-                return BadRequest(response.Errors);
-
-            return Ok();
+            return Result(response);
         }
 
         [HttpPut("{codigo:guid}")]
@@ -73,10 +64,7 @@ namespace AssistenteFinanceiro.Api.Controllers
         public ActionResult Put([FromBody] AtualizarContaCommand command)
         {
             var response = _service.AtualizarConta(command);
-            if (response.IsFailure)
-                return BadRequest(response.Errors);
-
-            return Ok();
+            return Result(response);
         }
     }
 }
