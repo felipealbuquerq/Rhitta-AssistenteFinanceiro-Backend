@@ -66,7 +66,7 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
         public Maybe<ContaPreview> ObterPreview(Guid id)
         {
             return _context.Contas
-                .Where(c => !c.Apagado)
+                .Where(c => c.Codigo == id && !c.Apagado)
                 .Select(c => new ContaPreview(
                     c.Codigo,
                     c.Nome.Nome,
