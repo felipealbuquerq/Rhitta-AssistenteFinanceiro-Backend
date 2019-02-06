@@ -5,7 +5,7 @@ namespace AssistenteFinanceiro.Api.Controllers.Base
 {
     public class ApiController : Controller
     {
-        public ActionResult Result(Result result)
+        protected ActionResult Result(Result result)
         {
             if (result.IsFailure)
             {
@@ -15,7 +15,7 @@ namespace AssistenteFinanceiro.Api.Controllers.Base
             return Ok();
         }
 
-        public ActionResult<T> Result<T>(Result<T> result)
+        protected ActionResult<T> Result<T>(Result<T> result)
         {
             if (result.IsFailure)
             {
