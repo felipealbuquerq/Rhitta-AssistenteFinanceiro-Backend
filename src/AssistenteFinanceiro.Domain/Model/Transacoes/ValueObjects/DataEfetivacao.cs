@@ -6,12 +6,13 @@ namespace AssistenteFinanceiro.Domain.Model.TransacaoValueObjects
 {
     public class DataEfetivacao : ValueObject
     {
-        public DateTime Data { get; }
+        public DateTime? Data { get; private set; }
 
+        private DataEfetivacao() { }
         private DataEfetivacao(DateTime data) => Data = data;
 
 
-        public static Result<DataEfetivacao> Criar(DateTime? dataOuNada)
+        public static Result<DataEfetivacao> Criar(DateTime dataOuNada)
         {
             Maybe<DateTime?> maybeData = dataOuNada;
 
@@ -28,6 +29,6 @@ namespace AssistenteFinanceiro.Domain.Model.TransacaoValueObjects
 
         public static DataEfetivacao Default => new DataEfetivacao(DateTime.Today);
 
-        public static implicit operator DateTime(DataEfetivacao data) => data.Data;
+        public static implicit operator DateTime?(DataEfetivacao data) => data.Data;
     }
 }

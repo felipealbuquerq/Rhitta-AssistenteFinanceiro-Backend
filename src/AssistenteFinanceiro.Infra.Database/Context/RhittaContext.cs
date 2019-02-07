@@ -20,11 +20,13 @@ namespace AssistenteFinanceiro.Infra.Database.Context
         }
 
         public DbSet<Conta> Contas { get; private set; }
+        public DbSet<Transacao> Transacoes { get; private set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("public");
             modelBuilder.ApplyConfiguration(new ContasConfiguration());
+            modelBuilder.ApplyConfiguration(new TransacoesConfiguration());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -31,7 +31,7 @@ namespace AssistenteFinanceiro.Infra.Database.MappingConfigurations
             builder.Property(c => c.Apagado).HasColumnName("apagado");
 
             //Relationships
-            //builder.HasMany(c => c.Transacoes).WithOne(t => t.Conta);
+            builder.HasMany(c => c.Transacoes).WithOne(t => t.Conta).HasForeignKey("codigo_conta");
             //builder.HasMany(c => c.Orcamentos).WithOne(o => o.Conta);
             //builder.HasMany(c => c.Objetivos).WithOne(o => o.Conta);
         }

@@ -9,9 +9,7 @@ namespace AssistenteFinanceiro.Domain.Model
 {
     public class Conta : BaseEntity
     {
-        protected Conta()
-        {
-        }
+        protected Conta() { }
 
         public Conta(Guid codigo, NomeConta nome, DescricaoConta descricao, IconeConta icone)
         {
@@ -31,8 +29,8 @@ namespace AssistenteFinanceiro.Domain.Model
             DataCriacao = DateTime.Now;
 
             Transacoes = new List<Transacao>();
-            Orcamentos = new List<Orcamento>();
-            Objetivos = new List<Objetivo>();
+            //Orcamentos = new List<Orcamento>();
+            //Objetivos = new List<Objetivo>();
         }
 
         public NomeConta Nome { get; private set; }
@@ -52,11 +50,8 @@ namespace AssistenteFinanceiro.Domain.Model
         }
 
         public ICollection<Transacao> Transacoes { get; }
-        public ICollection<Orcamento> Orcamentos { get; }
-        public ICollection<Objetivo> Objetivos { get; }
-
-        public IEnumerable<Transacao> Receitas => Transacoes.Where(t => t.IsReceita());
-        public IEnumerable<Transacao> Despesas => Transacoes.Where(t => t.IsDespesa());
+        //public ICollection<Orcamento> Orcamentos { get; }
+        //public ICollection<Objetivo> Objetivos { get; }
 
         public int TransacoesRealizadas() => Transacoes.Count(t => t.Efetivada);
         public int TransacoesPendentes() => Transacoes.Count(t => !t.Efetivada);

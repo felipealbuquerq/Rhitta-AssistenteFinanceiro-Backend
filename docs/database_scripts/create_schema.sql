@@ -19,7 +19,7 @@ create table TRANSACOES(
 	VALOR numeric(8, 2) NOT NULL, 
 	TIPO numeric(1) NOT NULL,
 	DATA_LANCAMENTO timestamp not null default now(),
-	DATA_EFETIVACAO timestamp not null default now(),
+	DATA_EFETIVACAO timestamp,
 	DATA_CRIACAO timestamp not null default now(),
 	DATA_ATUALIZACAO timestamp not null default now(),
 	APAGADO boolean not null default false
