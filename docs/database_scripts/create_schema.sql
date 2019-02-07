@@ -12,3 +12,17 @@ create table CONTAS(
 	DATA_ATUALIZACAO timestamp not null default now(),
 	APAGADO boolean not null default false
 );
+
+create table TRANSACOES(
+	CODIGO uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	CODIGO_CONTA uuid NOT NULL,
+	VALOR numeric(8, 2) NOT NULL, 
+	TIPO numeric(1) NOT NULL,
+	DATA_LANCAMENTO timestamp not null default now(),
+	DATA_EFETIVACAO timestamp not null default now(),
+	DATA_CRIACAO timestamp not null default now(),
+	DATA_ATUALIZACAO timestamp not null default now(),
+	APAGADO boolean not null default false
+);
+
+alter table transacoes add foreign key (CODIGO_CONTA) references contas(codigo);

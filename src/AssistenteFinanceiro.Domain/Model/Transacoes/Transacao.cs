@@ -26,7 +26,7 @@ namespace AssistenteFinanceiro.Domain.Model
         public TipoTransacao Tipo { get; }
         
         public DataEfetivacao DataEfetivacao { get; private set; }
-        public bool Efetivada { get; private set; }
+        public bool Efetivada => DataEfetivacao != null;
         
         public bool IsReceita() => Tipo == TipoTransacao.Receita;
         public bool IsDespesa() => !IsReceita();
