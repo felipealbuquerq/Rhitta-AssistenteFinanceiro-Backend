@@ -2,6 +2,7 @@
 using AssistenteFinanceiro.Application.QueriesResponses;
 using AssistenteFinanceiro.Domain.Model;
 using AssistenteFinanceiro.Infra.Database.Context;
+using Dapper;
 using InsurSoft.Backend.Shared.Functional;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -51,21 +52,22 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
 
         public List<ContaPreview> ObterPreviews()
         {
-            return _context.Contas
-                .AsNoTracking()
-                .Include(t => t.Transacoes)
-                .Where(c => !c.Apagado)
-                .OrderBy(c => c.DataCriacao)
-                .Select(c => new ContaPreview(
-                    c.Codigo,
-                    c.Nome.Nome,
-                    c.Icone.Icone,
-                    c.Icone.Cor,
-                    c.SaldoAtual,
-                    c.SaldoAtual,
-                    c.TransacoesRealizadas(),
-                    c.TransacoesPendentes()))
-                 .ToList();
+            var query = @"select 
+	                        c.codigo,
+	                        c.nome,
+	                        c.nome_icone as icone,
+	                        c.cor_icone as cor,
+	                        c.saldo_atual as saldo,
+	                        0 as saldoPrevisto,
+	                        count(t.codigo) filter (where data_efetivacao is not null) as transacoesRealizadas,
+	                        count(t.codigo) filter (where data_efetivacao is null) as transacoesPendentes
+                        from contas c 
+	                        left join transacoes t on t.codigo_conta = c.codigo
+                        where c.apagado = false
+                        group by c.codigo;";
+
+            var response = _context.Database.GetDbConnection().Query<ContaPreview>(query).ToList();
+            return response;
         }
 
         public Maybe<ContaPreview> ObterPreview(Guid id)
@@ -79,8 +81,8 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
                     c.Icone.Icone,
                     c.Icone.Cor,
                     c.SaldoAtual,
-                    c.SaldoAtual, 
-                    0, 
+                    c.SaldoAtual,
+                    0,
                     0))
                 .FirstOrDefault();
         }

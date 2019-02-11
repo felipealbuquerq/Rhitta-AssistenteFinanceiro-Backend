@@ -6,6 +6,11 @@ namespace AssistenteFinanceiro.Application.QueriesResponses
 {
     public class ContaPreview
     {
+        protected ContaPreview()
+        {
+
+        }
+
         public ContaPreview(Guid codigo, string nome, string icone, string cor, decimal saldo, decimal saldoPrevisto, int transacoesRealizadas = 0, int transacoesPendentes = 0)
         {
             Codigo = codigo;

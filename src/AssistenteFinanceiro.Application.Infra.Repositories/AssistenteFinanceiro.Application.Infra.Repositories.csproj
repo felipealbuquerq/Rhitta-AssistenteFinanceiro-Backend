@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AssistenteFinanceiro.Application\AssistenteFinanceiro.Application.csproj" />
     <ProjectReference Include="..\AssistenteFinanceiro.Domain\AssistenteFinanceiro.Domain.csproj" />
     <ProjectReference Include="..\AssistenteFinanceiro.Infra.Database\AssistenteFinanceiro.Infra.Database.csproj" />
