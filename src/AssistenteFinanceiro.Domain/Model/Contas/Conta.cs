@@ -49,7 +49,7 @@ namespace AssistenteFinanceiro.Domain.Model
             Icone = novoIcone;
         }
 
-        public ICollection<Transacao> Transacoes { get; }
+        public ICollection<Transacao> Transacoes { get; private set; }
         //public ICollection<Orcamento> Orcamentos { get; }
         //public ICollection<Objetivo> Objetivos { get; }
 

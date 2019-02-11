@@ -6,7 +6,7 @@ namespace AssistenteFinanceiro.Application.QueriesResponses
 {
     public class ContaPreview
     {
-        public ContaPreview(Guid codigo, string nome, string icone, string cor, decimal saldo, decimal saldoPrevisto)
+        public ContaPreview(Guid codigo, string nome, string icone, string cor, decimal saldo, decimal saldoPrevisto, int transacoesRealizadas, int transacoesPendentes)
         {
             Codigo = codigo;
             Nome = nome;
@@ -14,8 +14,8 @@ namespace AssistenteFinanceiro.Application.QueriesResponses
             Cor = cor;
             Saldo = saldo;
             SaldoPrevisto = saldoPrevisto;
-            TransacoesRealizadas = 0;
-            TransacoesPendentes = 0; 
+            TransacoesRealizadas = transacoesRealizadas;
+            TransacoesPendentes = transacoesPendentes; 
         }
 
         public Guid Codigo { get; private set; }
