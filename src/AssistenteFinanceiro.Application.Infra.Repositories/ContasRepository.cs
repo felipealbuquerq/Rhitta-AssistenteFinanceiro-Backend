@@ -29,13 +29,13 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
         public void AtualizarConta(Conta conta)
         {
             conta.MarcarComoAtualizado();
-            _context.Entry(conta).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.Entry(conta).State = EntityState.Modified;
             _context.SaveChanges();
         }
 
         public void RemoverConta(Guid id)
         {
-            var conta = _context.Contas.Find(id);
+            var conta = _context.Contas.AsNoTracking().FirstOrDefault(c => c.Codigo == id);
             if (conta == null)
                 return;
 
@@ -52,6 +52,7 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
         public List<ContaPreview> ObterPreviews()
         {
             return _context.Contas
+                .AsNoTracking()
                 .Include(t => t.Transacoes)
                 .Where(c => !c.Apagado)
                 .OrderBy(c => c.DataCriacao)
@@ -70,7 +71,7 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
         public Maybe<ContaPreview> ObterPreview(Guid id)
         {
             return _context.Contas
-                .Include(t => t.Transacoes)
+                .AsNoTracking()
                 .Where(c => c.Codigo == id && !c.Apagado)
                 .Select(c => new ContaPreview(
                     c.Codigo,
@@ -78,9 +79,9 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
                     c.Icone.Icone,
                     c.Icone.Cor,
                     c.SaldoAtual,
-                    c.SaldoAtual,
-                    c.TransacoesRealizadas(),
-                    c.TransacoesPendentes()))
+                    c.SaldoAtual, 
+                    0, 
+                    0))
                 .FirstOrDefault();
         }
     }
