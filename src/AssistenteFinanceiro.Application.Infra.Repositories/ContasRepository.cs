@@ -84,20 +84,6 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
                 where c.apagado = false and c.codigo = @codigo";
 
             return _context.Database.GetDbConnection().QuerySingle<ContaPreview>(query, new { codigo = id });
-
-            //return _context.Contas
-            //    .AsNoTracking()
-            //    .Where(c => c.Codigo == id && !c.Apagado)
-            //    .Select(c => new ContaPreview(
-            //        c.Codigo,
-            //        c.Nome.Nome,
-            //        c.Icone.Icone,
-            //        c.Icone.Cor,
-            //        c.SaldoAtual,
-            //        c.SaldoAtual,
-            //        0,
-            //        0))
-            //    .FirstOrDefault();
         }
     }
 }
