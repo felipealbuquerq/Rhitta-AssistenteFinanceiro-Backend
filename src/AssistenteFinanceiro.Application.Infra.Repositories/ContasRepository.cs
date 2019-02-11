@@ -52,39 +52,52 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
 
         public List<ContaPreview> ObterPreviews()
         {
-            var query = @"select 
-	                        c.codigo,
-	                        c.nome,
-	                        c.nome_icone as icone,
-	                        c.cor_icone as cor,
-	                        c.saldo_atual as saldo,
-	                        0 as saldoPrevisto,
-	                        count(t.codigo) filter (where data_efetivacao is not null) as transacoesRealizadas,
-	                        count(t.codigo) filter (where data_efetivacao is null) as transacoesPendentes
-                        from contas c 
-	                        left join transacoes t on t.codigo_conta = c.codigo
-                        where c.apagado = false
-                        group by c.codigo;";
+            var query = @"
+                select 
+	                c.codigo,
+	                c.nome,
+	                c.nome_icone as icone,
+	                c.cor_icone as cor,
+	                c.saldo_atual as saldo,
+	                0 as saldoPrevisto,
+	                count(t.codigo) filter (where data_efetivacao is not null) as transacoesRealizadas,
+	                count(t.codigo) filter (where data_efetivacao is null) as transacoesPendentes
+                from contas c 
+	                left join transacoes t on t.codigo_conta = c.codigo
+                where c.apagado = false
+                group by c.codigo;";
 
-            var response = _context.Database.GetDbConnection().Query<ContaPreview>(query).ToList();
-            return response;
+            return _context.Database.GetDbConnection().Query<ContaPreview>(query).ToList();
         }
 
         public Maybe<ContaPreview> ObterPreview(Guid id)
         {
-            return _context.Contas
-                .AsNoTracking()
-                .Where(c => c.Codigo == id && !c.Apagado)
-                .Select(c => new ContaPreview(
-                    c.Codigo,
-                    c.Nome.Nome,
-                    c.Icone.Icone,
-                    c.Icone.Cor,
-                    c.SaldoAtual,
-                    c.SaldoAtual,
-                    0,
-                    0))
-                .FirstOrDefault();
+            var query = @"
+                select
+                    c.codigo,
+	                c.nome,
+	                c.nome_icone as icone,
+	                c.cor_icone as cor,
+	                c.saldo_atual as saldo
+                from contas c
+                    left join transacoes t on t.codigo_conta = c.codigo
+                where c.apagado = false and c.codigo = @codigo";
+
+            return _context.Database.GetDbConnection().QuerySingle<ContaPreview>(query, new { codigo = id });
+
+            //return _context.Contas
+            //    .AsNoTracking()
+            //    .Where(c => c.Codigo == id && !c.Apagado)
+            //    .Select(c => new ContaPreview(
+            //        c.Codigo,
+            //        c.Nome.Nome,
+            //        c.Icone.Icone,
+            //        c.Icone.Cor,
+            //        c.SaldoAtual,
+            //        c.SaldoAtual,
+            //        0,
+            //        0))
+            //    .FirstOrDefault();
         }
     }
 }
