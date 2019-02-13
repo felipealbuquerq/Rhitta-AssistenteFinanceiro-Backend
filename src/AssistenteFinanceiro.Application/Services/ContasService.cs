@@ -79,5 +79,10 @@ namespace AssistenteFinanceiro.Application.Services
 
             return Result.Ok();
         }
+
+        public Result<ContaDetalhada> ObterDetalhadaDoMes(ObterDetalhadaQuery query)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

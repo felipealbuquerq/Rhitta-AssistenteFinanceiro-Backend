@@ -13,5 +13,6 @@ namespace AssistenteFinanceiro.Application.Interfaces.Services
         Result RemoverConta(RemoverContaCommand command);
         List<ContaPreview> ObterPreviews();
         Result<ContaPreview> ObterPreview(ObterPreviewQuery query);
+        Result<ContaDetalhada> ObterDetalhadaDoMes(ObterDetalhadaQuery query);
     }
 }
