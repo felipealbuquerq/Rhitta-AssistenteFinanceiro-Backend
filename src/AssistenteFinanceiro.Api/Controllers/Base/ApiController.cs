@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AssistenteFinanceiro.Api.Controllers.Base
 {
-    public class ApiController : Controller
+    public class ApiController : ControllerBase
     {
         protected ActionResult Result(Result result)
         {
