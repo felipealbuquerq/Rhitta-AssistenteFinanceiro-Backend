@@ -1,5 +1,5 @@
-﻿using AssistenteFinanceiro.Application.Infra.Repositories;
-using AssistenteFinanceiro.Application.Interfaces.Repositories;
+﻿using AssistenteFinanceiro.Application.Contas.Interfaces.Repositories;
+using AssistenteFinanceiro.Application.Infra.Repositories;
 using AssistenteFinanceiro.Infra.Database.Context;
 using Microsoft.Extensions.DependencyInjection;
 

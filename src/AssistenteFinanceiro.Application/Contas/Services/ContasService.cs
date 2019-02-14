@@ -1,12 +1,12 @@
-﻿using AssistenteFinanceiro.Application.Commands.Contas;
-using AssistenteFinanceiro.Application.Interfaces.Repositories;
-using AssistenteFinanceiro.Application.Interfaces.Services;
-using AssistenteFinanceiro.Application.Queries;
-using AssistenteFinanceiro.Application.QueriesResponses;
-using InsurSoft.Backend.Shared.Functional;
+﻿using AssistenteFinanceiro.Application.Contas.Commands;
+using AssistenteFinanceiro.Application.Contas.Interfaces.Repositories;
+using AssistenteFinanceiro.Application.Contas.Interfaces.Services;
+using AssistenteFinanceiro.Application.Contas.Queries;
+using AssistenteFinanceiro.Application.Contas.QueriesResponses;
+using AssistenteFinanceiro.Infra.Functional;
 using System.Collections.Generic;
 
-namespace AssistenteFinanceiro.Application.Services
+namespace AssistenteFinanceiro.Application.Contas.Services
 {
     public class ContasService : IContasService
     {
@@ -78,11 +78,6 @@ namespace AssistenteFinanceiro.Application.Services
             _repository.RemoverConta(result.Value);
 
             return Result.Ok();
-        }
-
-        public Result<ContaDetalhada> ObterDetalhadaDoMes(ObterDetalhadaQuery query)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

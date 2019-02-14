@@ -1,9 +1,10 @@
-﻿using AssistenteFinanceiro.Domain.Enums;
+﻿using AssistenteFinanceiro.Domain.Model.Contas;
 using AssistenteFinanceiro.Domain.Model.TransacaoValueObjects;
+using AssistenteFinanceiro.Domain.Model.Transacoes.Enums;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
 using System;
 
-namespace AssistenteFinanceiro.Domain.Model
+namespace AssistenteFinanceiro.Domain.Model.Transacoes
 {
     public class Transacao : BaseEntity
     {

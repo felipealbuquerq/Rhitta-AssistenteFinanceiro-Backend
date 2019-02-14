@@ -1,4 +1,4 @@
-﻿using InsurSoft.Backend.Shared.Functional;
+﻿using AssistenteFinanceiro.Infra.Functional;
 
 namespace AssistenteFinanceiro.Infra.SharedKernel.Command
 {

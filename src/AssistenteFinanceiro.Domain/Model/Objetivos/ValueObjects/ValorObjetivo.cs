@@ -1,4 +1,4 @@
-﻿using InsurSoft.Backend.Shared.Functional;
+﻿using AssistenteFinanceiro.Infra.Functional;
 using System.Collections.Generic;
 
 namespace AssistenteFinanceiro.Domain.Model.Objetivos.ValueObjects

@@ -1,9 +1,9 @@
-﻿using AssistenteFinanceiro.Domain.Model;
+﻿using AssistenteFinanceiro.Domain.Model.Contas;
+using AssistenteFinanceiro.Domain.Model.Transacoes;
 using AssistenteFinanceiro.Infra.Database.Configuration;
 using AssistenteFinanceiro.Infra.Database.MappingConfigurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
 using Microsoft.Extensions.Options;
 
 namespace AssistenteFinanceiro.Infra.Database.Context

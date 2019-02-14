@@ -1,6 +1,6 @@
-﻿using System;
+﻿using AssistenteFinanceiro.Infra.Functional;
+using System;
 using System.Collections.Generic;
-using InsurSoft.Backend.Shared.Functional;
 
 namespace AssistenteFinanceiro.Domain.Model.TransacaoValueObjects
 {

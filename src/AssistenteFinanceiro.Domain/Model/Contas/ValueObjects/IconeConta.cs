@@ -1,5 +1,4 @@
-﻿using InsurSoft.Backend.Shared.Functional;
-using System;
+﻿using AssistenteFinanceiro.Infra.Functional;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 

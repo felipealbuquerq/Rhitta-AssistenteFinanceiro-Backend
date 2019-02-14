@@ -1,9 +1,9 @@
-﻿using AssistenteFinanceiro.Application.Interfaces.Repositories;
-using AssistenteFinanceiro.Application.QueriesResponses;
-using AssistenteFinanceiro.Domain.Model;
+﻿using AssistenteFinanceiro.Application.Contas.Interfaces.Repositories;
+using AssistenteFinanceiro.Application.Contas.QueriesResponses;
+using AssistenteFinanceiro.Domain.Model.Contas;
 using AssistenteFinanceiro.Infra.Database.Context;
+using AssistenteFinanceiro.Infra.Functional;
 using Dapper;
-using InsurSoft.Backend.Shared.Functional;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

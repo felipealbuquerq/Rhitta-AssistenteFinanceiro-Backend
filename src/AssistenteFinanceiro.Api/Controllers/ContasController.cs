@@ -1,12 +1,12 @@
-﻿using AssistenteFinanceiro.Application.Commands.Contas;
-using AssistenteFinanceiro.Application.Interfaces.Services;
-using AssistenteFinanceiro.Application.Queries;
-using AssistenteFinanceiro.Application.QueriesResponses;
+﻿using AssistenteFinanceiro.Api.Controllers.Base;
+using AssistenteFinanceiro.Application.Contas.Commands;
+using AssistenteFinanceiro.Application.Contas.Interfaces.Services;
+using AssistenteFinanceiro.Application.Contas.Queries;
+using AssistenteFinanceiro.Application.Contas.QueriesResponses;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
-using AssistenteFinanceiro.Api.Controllers.Base;
 
 namespace AssistenteFinanceiro.Api.Controllers
 {

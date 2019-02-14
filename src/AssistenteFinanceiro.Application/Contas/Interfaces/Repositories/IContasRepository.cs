@@ -1,10 +1,10 @@
-﻿using AssistenteFinanceiro.Application.QueriesResponses;
-using AssistenteFinanceiro.Domain.Model;
-using InsurSoft.Backend.Shared.Functional;
+﻿using AssistenteFinanceiro.Application.Contas.QueriesResponses;
+using AssistenteFinanceiro.Domain.Model.Contas;
+using AssistenteFinanceiro.Infra.Functional;
 using System;
 using System.Collections.Generic;
 
-namespace AssistenteFinanceiro.Application.Interfaces.Repositories
+namespace AssistenteFinanceiro.Application.Contas.Interfaces.Repositories
 {
     public interface IContasRepository
     {

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace InsurSoft.Backend.Shared.Functional.Async
+namespace AssistenteFinanceiro.Infra.Functional.Async
 {
     public static class AsyncMaybeExtensions
     {

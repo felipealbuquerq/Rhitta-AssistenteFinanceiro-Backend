@@ -1,9 +1,6 @@
-﻿using AssistenteFinanceiro.Application.Interfaces.Services;
-using AssistenteFinanceiro.Application.Services;
+﻿using AssistenteFinanceiro.Application.Contas.Interfaces.Services;
+using AssistenteFinanceiro.Application.Contas.Services;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AssistenteFinanceiro.Application.Infra.Ioc
 {

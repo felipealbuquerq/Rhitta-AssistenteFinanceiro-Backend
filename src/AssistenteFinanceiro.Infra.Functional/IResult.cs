@@ -1,4 +1,4 @@
-﻿namespace InsurSoft.Backend.Shared.Functional
+﻿namespace AssistenteFinanceiro.Infra.Functional
 {
     public interface IResult
     {

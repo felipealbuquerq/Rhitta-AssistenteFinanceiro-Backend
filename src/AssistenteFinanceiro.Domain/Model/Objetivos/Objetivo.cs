@@ -1,7 +1,8 @@
-﻿using AssistenteFinanceiro.Domain.Model.Objetivos.ValueObjects;
+﻿using AssistenteFinanceiro.Domain.Model.Contas;
+using AssistenteFinanceiro.Domain.Model.Objetivos.ValueObjects;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
 
-namespace AssistenteFinanceiro.Domain.Model
+namespace AssistenteFinanceiro.Domain.Model.Objetivos
 {
     public class Objetivo : BaseEntity
     {

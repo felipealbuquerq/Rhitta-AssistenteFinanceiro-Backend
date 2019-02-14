@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InsurSoft.Backend.Shared.Functional
+namespace AssistenteFinanceiro.Infra.Functional
 {
     public static partial class ResultExtensions
     {

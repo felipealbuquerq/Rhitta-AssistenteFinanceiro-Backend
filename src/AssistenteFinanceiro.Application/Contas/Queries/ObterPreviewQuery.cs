@@ -1,8 +1,8 @@
-﻿using AssistenteFinanceiro.Infra.SharedKernel.Query;
-using InsurSoft.Backend.Shared.Functional;
+﻿using AssistenteFinanceiro.Infra.Functional;
+using AssistenteFinanceiro.Infra.SharedKernel.Query;
 using System;
 
-namespace AssistenteFinanceiro.Application.Queries
+namespace AssistenteFinanceiro.Application.Contas.Queries
 {
     public class ObterPreviewQuery : IQuery<Guid>
     {
@@ -15,7 +15,7 @@ namespace AssistenteFinanceiro.Application.Queries
 
         public Result<Guid> Validate()
         {
-            if (Codigo == null || Codigo == default(Guid))
+            if (Codigo == default(Guid))
                 return Result.Fail<Guid>("O código da conta não deve ser vazio");
 
             return Result.Ok(Codigo);

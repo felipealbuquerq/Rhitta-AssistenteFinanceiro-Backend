@@ -1,10 +1,10 @@
-﻿using AssistenteFinanceiro.Application.Commands.Contas;
-using AssistenteFinanceiro.Application.Queries;
-using AssistenteFinanceiro.Application.QueriesResponses;
-using InsurSoft.Backend.Shared.Functional;
+﻿using AssistenteFinanceiro.Application.Contas.Commands;
+using AssistenteFinanceiro.Application.Contas.Queries;
+using AssistenteFinanceiro.Application.Contas.QueriesResponses;
+using AssistenteFinanceiro.Infra.Functional;
 using System.Collections.Generic;
 
-namespace AssistenteFinanceiro.Application.Interfaces.Services
+namespace AssistenteFinanceiro.Application.Contas.Interfaces.Services
 {
     public interface IContasService
     {
@@ -13,6 +13,5 @@ namespace AssistenteFinanceiro.Application.Interfaces.Services
         Result RemoverConta(RemoverContaCommand command);
         List<ContaPreview> ObterPreviews();
         Result<ContaPreview> ObterPreview(ObterPreviewQuery query);
-        Result<ContaDetalhada> ObterDetalhadaDoMes(ObterDetalhadaQuery query);
     }
 }

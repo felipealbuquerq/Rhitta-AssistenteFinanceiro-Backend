@@ -1,4 +1,4 @@
-﻿using InsurSoft.Backend.Shared.Functional;
+﻿using AssistenteFinanceiro.Infra.Functional;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssistenteFinanceiro.Api.Controllers.Base

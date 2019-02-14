@@ -1,11 +1,12 @@
 ﻿using AssistenteFinanceiro.Domain.Enums;
 using AssistenteFinanceiro.Domain.Model.Contas.ValueObjects;
+using AssistenteFinanceiro.Domain.Model.Transacoes;
 using AssistenteFinanceiro.Infra.SharedKernel.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AssistenteFinanceiro.Domain.Model
+namespace AssistenteFinanceiro.Domain.Model.Contas
 {
     public class Conta : BaseEntity
     {

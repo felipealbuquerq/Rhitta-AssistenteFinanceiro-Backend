@@ -1,8 +1,7 @@
 ﻿namespace AssistenteFinanceiro.Domain.Enums
 {
-    public enum Meses
+    public enum MesDoAno
     {
-        Desconhecido = 0,
         January = 1,
         February = 2,
         March = 3,

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InsurSoft.Backend.Shared.Functional
+namespace AssistenteFinanceiro.Infra.Functional
 {
     public struct Maybe<T> : IEquatable<Maybe<T>>
     {

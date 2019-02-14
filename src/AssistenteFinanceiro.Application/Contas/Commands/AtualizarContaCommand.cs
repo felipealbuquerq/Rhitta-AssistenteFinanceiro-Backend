@@ -1,12 +1,10 @@
-﻿using AssistenteFinanceiro.Domain.Model;
+﻿using AssistenteFinanceiro.Domain.Model.Contas;
 using AssistenteFinanceiro.Domain.Model.Contas.ValueObjects;
+using AssistenteFinanceiro.Infra.Functional;
 using AssistenteFinanceiro.Infra.SharedKernel.Command;
-using InsurSoft.Backend.Shared.Functional;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace AssistenteFinanceiro.Application.Commands.Contas
+namespace AssistenteFinanceiro.Application.Contas.Commands
 {
     public class AtualizarContaCommand : ICommand<Conta>
     {

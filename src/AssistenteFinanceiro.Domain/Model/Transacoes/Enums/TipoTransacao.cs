@@ -1,4 +1,4 @@
-﻿namespace AssistenteFinanceiro.Domain.Enums
+﻿namespace AssistenteFinanceiro.Domain.Model.Transacoes.Enums
 {
     public enum TipoTransacao
     {

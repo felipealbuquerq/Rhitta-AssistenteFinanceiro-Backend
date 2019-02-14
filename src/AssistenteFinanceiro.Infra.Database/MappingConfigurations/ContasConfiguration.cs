@@ -1,4 +1,4 @@
-﻿using AssistenteFinanceiro.Domain.Model;
+﻿using AssistenteFinanceiro.Domain.Model.Contas;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
