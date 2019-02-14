@@ -4,6 +4,7 @@ using AssistenteFinanceiro.Application.Contas.Interfaces.Services;
 using AssistenteFinanceiro.Application.Contas.Queries;
 using AssistenteFinanceiro.Application.Contas.QueriesResponses;
 using AssistenteFinanceiro.Infra.Functional;
+using System;
 using System.Collections.Generic;
 
 namespace AssistenteFinanceiro.Application.Contas.Services
@@ -19,49 +20,70 @@ namespace AssistenteFinanceiro.Application.Contas.Services
 
         public Result CriarConta(CriarContaCommand command)
         {
-            var result = command.Validate();
+            try
+            {
+                var result = command.Validate();
 
-            if (result.IsFailure)
-                return result;
+                if (result.IsFailure)
+                    return result;
 
-            _repository.AdicionarConta(result.Value);
+                _repository.AdicionarConta(result.Value);
 
-            return Result.Ok();
+                return Result.Ok();
+            }
+            catch (Exception ex)
+            {
+                return Result.Fail("Falha ao criar conta");
+            }
         }
 
         public Result AtualizarConta(AtualizarContaCommand command)
         {
-            var result = command.Validate();
-            if (result.IsFailure)
-                return result;
+            try
+            {
+                var result = command.Validate();
+                if (result.IsFailure)
+                    return result;
 
-            var contaOrNothing = _repository.ObterConta(command.Codigo);
+                var contaOrNothing = _repository.ObterConta(command.Codigo);
 
-            if (contaOrNothing.HasNoValue)
-                return Result.Fail("Não existe uma conta com o código especificado");
+                if (contaOrNothing.HasNoValue)
+                    return Result.Fail("Não existe uma conta com o código especificado");
 
-            var conta = contaOrNothing.Value;
-            conta.Renomear(result.Value.Nome);
-            conta.AtualizarIcone(result.Value.Icone);
+                var conta = contaOrNothing.Value;
+                conta.Renomear(result.Value.Nome);
+                conta.AtualizarIcone(result.Value.Icone);
 
-            _repository.AtualizarConta(conta);
+                _repository.AtualizarConta(conta);
 
-            return Result.Ok();
+                return Result.Ok();
+            }
+            catch (Exception ex)
+            {
+                return Result.Fail("Falha ao atualizar conta");
+            }
         }
 
         public Result<ContaPreview> ObterPreview(ObterPreviewQuery query)
         {
-            var result = query.Validate();
+            try
+            {
+                var result = query.Validate();
 
-            if (result.IsFailure)
-                return Result.Fail<ContaPreview>(result.Errors);
+                if (result.IsFailure)
+                    return Result.Fail<ContaPreview>(result.Errors);
 
-            var queryResult = _repository.ObterPreview(result.Value);
+                var queryResult = _repository.ObterPreview(result.Value);
 
-            if (queryResult.HasValue)
-                return Result.Ok(queryResult.Value);
+                if (queryResult.HasValue)
+                    return Result.Ok(queryResult.Value);
 
-            return Result.Ok<ContaPreview>(null);
+                return Result.Ok<ContaPreview>(null);
+            }
+            catch (Exception ex)
+            {
+                return Result.Fail<ContaPreview>("Falha ao obter preview da conta");
+            }
         }
 
         public List<ContaPreview> ObterPreviews()
@@ -71,13 +93,20 @@ namespace AssistenteFinanceiro.Application.Contas.Services
 
         public Result RemoverConta(RemoverContaCommand command)
         {
-            var result = command.Validate();
-            if (result.IsFailure)
-                return result;
+            try
+            {
+                var result = command.Validate();
+                if (result.IsFailure)
+                    return result;
 
-            _repository.RemoverConta(result.Value);
+                _repository.RemoverConta(result.Value);
 
-            return Result.Ok();
+                return Result.Ok();
+            }
+            catch (Exception ex)
+            {
+                return Result.Fail("Falha ao remover conta");
+            }
         }
     }
 }

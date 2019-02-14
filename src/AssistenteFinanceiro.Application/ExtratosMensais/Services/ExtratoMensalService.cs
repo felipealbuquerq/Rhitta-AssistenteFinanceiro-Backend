@@ -18,7 +18,14 @@ namespace AssistenteFinanceiro.Application.ExtratosMensais.Services
 
         public Result<ExtratoMensal> ObterExtratoMensal(ObterExtratoMensalQuery query)
         {
-            return Result.Ok(_repository.ObterExtratoMensal(query.Ano, (int) query.Mes));
+            try
+            {
+                return Result.Ok(_repository.ObterExtratoMensal(query.Ano, (int)query.Mes));
+            }
+            catch (Exception ex)
+            {
+                return Result.Fail<ExtratoMensal>("Falha ao obter extrato mensal");
+            }
         }
     }
 }
