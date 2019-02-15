@@ -20,12 +20,13 @@ namespace AssistenteFinanceiro.Application.Infra.Repositories
             var transacoesDoMes = _context
                 .Transacoes
                 .AsNoTracking()
-                .Where(c => c.DataLancamento.Data.Month == mes && c.DataLancamento.Data.Year == ano)
-                .Select(c => new ExtratoMensal.Transacao(
-                    "Descrição pendente",
-                    c.Valor,
-                    c.DataLancamento.Data,
-                    c.Efetivada
+                .Where(c => c.DataVencimento.Data.Month == mes && c.DataVencimento.Data.Year == ano)
+                .Select(c => 
+                    new ExtratoMensal.Transacao(
+                        "Descrição pendente",
+                        c.Valor,
+                        c.DataVencimento,
+                        c.Efetivada
                 ))
                 .ToList();
 

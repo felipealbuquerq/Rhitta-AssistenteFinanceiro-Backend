@@ -1,4 +1,5 @@
 ﻿using AssistenteFinanceiro.Application.Contas.Interfaces.Repositories;
+using AssistenteFinanceiro.Application.ExtratosMensais.Interfaces.Repositories;
 using AssistenteFinanceiro.Application.Infra.Repositories;
 using AssistenteFinanceiro.Infra.Database.Context;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ namespace AssistenteFinanceiro.Application.Infra.Ioc
         {
             services.AddScoped<RhittaContext>();
             services.AddScoped<IContasRepository, ContasRepository>();
+            services.AddScoped<IExtratoMensalRepository, ExtratoMensalRepository>();
         }
     }
 }

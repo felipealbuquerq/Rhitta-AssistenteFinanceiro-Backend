@@ -10,22 +10,22 @@ namespace AssistenteFinanceiro.Domain.Model.Transacoes
     {
         protected Transacao() { }
 
-        public Transacao(Guid codigo, Conta conta, ValorTransacao valor, TipoTransacao tipo, DataLancamento dataLancamento, DataEfetivacao dataEfetivacao)
+        public Transacao(Guid codigo, Conta conta, ValorTransacao valor, TipoTransacao tipo, DataVencimento dataLancamento, DataEfetivacao dataEfetivacao)
         {
             Codigo = codigo;
             Conta = conta;
             Valor = valor;
             Tipo = tipo;
-            DataLancamento = dataLancamento;
+            DataVencimento = dataLancamento;
             DataEfetivacao = dataEfetivacao;
         }
 
-        public Transacao(Conta conta, ValorTransacao valor, TipoTransacao tipo, DataLancamento dataLancamento, DataEfetivacao dataEfetivacao)
+        public Transacao(Conta conta, ValorTransacao valor, TipoTransacao tipo, DataVencimento dataLancamento, DataEfetivacao dataEfetivacao)
         {
             Conta = conta;
             Valor = valor;
             Tipo = tipo;
-            DataLancamento = dataLancamento;
+            DataVencimento = dataLancamento;
             DataEfetivacao = dataEfetivacao;
         }
         
@@ -33,11 +33,11 @@ namespace AssistenteFinanceiro.Domain.Model.Transacoes
         public ValorTransacao Valor { get; private set; }
         public TipoTransacao Tipo { get; private set; }
         
-        public DataLancamento DataLancamento { get; private set; }
+        public DataVencimento DataVencimento { get; private set; }
         public DataEfetivacao DataEfetivacao { get; private set; }
         public bool Efetivada => DataEfetivacao != null;
 
-        public void Efetivar() => DataLancamento = DataLancamento.Criar(DateTime.Now).Value;
+        public void Efetivar() => DataEfetivacao = DataEfetivacao.Criar(DateTime.Now).Value;
 
         public bool IsReceita() => Tipo == TipoTransacao.Receita;
         public bool IsDespesa() => !IsReceita();

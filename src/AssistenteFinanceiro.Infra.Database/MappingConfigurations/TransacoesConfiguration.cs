@@ -21,9 +21,17 @@ namespace AssistenteFinanceiro.Infra.Database.MappingConfigurations
             builder.Property(c => c.Tipo).HasColumnName("tipo");
 
             //Embedded ValueObjects
-            builder.OwnsOne(c => c.Valor).Property(p => p.Valor).HasColumnName("valor");
-            builder.OwnsOne(c => c.DataLancamento).Property(p => p.Data).HasColumnName("data_lancamento");
-            builder.OwnsOne(c => c.DataEfetivacao).Property(p => p.Data).HasColumnName("data_efetivacao");
+            builder.OwnsOne(c => c.Valor)
+                .Property(p => p.Valor)
+                .HasColumnName("valor");
+
+            builder.OwnsOne(c => c.DataVencimento).Property(p => p.Data)
+                .IsRequired()
+                .HasColumnName("data_lancamento");
+
+            builder.OwnsOne(c => c.DataEfetivacao)
+                .Property(p => p.Data)
+                .HasColumnName("data_efetivacao");
 
             builder.Property(c => c.DataCriacao).HasColumnName("data_criacao");
             builder.Property(c => c.DataAtualizacao).HasColumnName("data_atualizacao");
