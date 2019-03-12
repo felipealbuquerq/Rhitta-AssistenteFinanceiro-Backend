@@ -1,5 +1,7 @@
 ﻿using AssistenteFinanceiro.Api.Configurations;
 using AssistenteFinanceiro.Application.Infra.Ioc;
+using Hangfire;
+using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +35,7 @@ namespace AssistenteFinanceiro.Api
             {
                 c.SwaggerDoc("v1", new Info { Title = "Rhitta-WebApi", Version = "v1" });
             });
+            services.AddHangfire(x => x.UseMemoryStorage());
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -57,6 +60,8 @@ namespace AssistenteFinanceiro.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseHangfireServer();
+            app.UseHangfireDashboard();
         }
     }
 }

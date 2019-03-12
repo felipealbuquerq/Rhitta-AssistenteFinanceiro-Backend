@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AssistenteFinanceiro.Api.Controllers.Base;
+﻿using AssistenteFinanceiro.Api.Controllers.Base;
 using AssistenteFinanceiro.Application.ExtratosMensais.Interfaces.Services;
 using AssistenteFinanceiro.Application.ExtratosMensais.Queries;
 using AssistenteFinanceiro.Application.ExtratosMensais.QueriesResponses;
 using AssistenteFinanceiro.Domain.Enums;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssistenteFinanceiro.Api.Controllers
@@ -28,6 +23,7 @@ namespace AssistenteFinanceiro.Api.Controllers
         {
             var query = new ObterExtratoMensalQuery(ano, mes);
             var response = _service.ObterExtratoMensal(query);
+
             return Result(response);
         }
     }
